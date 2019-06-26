@@ -7,7 +7,8 @@ export default class App extends Component {
   state = {
     manager: "",
     players: [],
-    balance: ""
+    balance: "",
+    value: ""
   };
 
   async componentDidMount() {
@@ -17,6 +18,11 @@ export default class App extends Component {
 
     this.setState({ manager, players, balance });
   }
+
+  onSubmit = async e => {
+    e.preventDefault;
+    lottery.methods.enter();
+  };
 
   render() {
     return (
@@ -32,6 +38,20 @@ export default class App extends Component {
           Currently, the lottery has{" "}
           {web3.utils.fromWei(this.state.balance, "ether")} ether.
         </p>
+
+        <hr />
+
+        <form onSubmit={this.onSubmit}>
+          <h4>Want to try your luck?</h4>
+          <div>
+            <label>Amount of ether to enter </label>
+            <input
+              placeholder="0"
+              onChange={event => this.setState({ value: event.target.value })}
+            />
+          </div>
+          <button>Enter</button>
+        </form>
       </div>
     );
   }
