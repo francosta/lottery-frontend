@@ -29,7 +29,7 @@ export default class App extends Component {
     await lottery.methods.enter().send({
       from: accounts[0],
       value: web3.utils.toWei(this.state.value, "ether")
-    });
+    }).then(console.log)
 
     this.setState({ message: "You have been entered to the lottery!" });
   };
@@ -50,6 +50,7 @@ export default class App extends Component {
     return (
       <div>
         <h2>Lottery Contract</h2>
+        <p>This contract's address is {lottery.options.address}</p>
         <p>This contract is managed by {this.state.manager}</p>
         <p>
           There are currently {this.state.players.length} players in the

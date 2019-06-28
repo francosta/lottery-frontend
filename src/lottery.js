@@ -1,7 +1,7 @@
 import web3 from "./web3";
 
 // Contract deployment address
-const address = "0x3d67A78b1f7fB3fA589ba8340084F170869Ec2f4";
+const address = "0x93aa6bCa54f95EDFA654DfD1F2457Eb62dBaa245";
 
 // Contract abi
 const abi = [
